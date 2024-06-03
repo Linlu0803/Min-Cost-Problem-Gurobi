@@ -1,15 +1,20 @@
-
 import json
 import networkx as nx
 import matplotlib.pyplot as plt
-import sys
-sys.path.append('/path/to/lib')  # Replace '/path/to/lib' with the actual path to the 'lib' package
-
 from lib import mcf_solver
 from networkx import bipartite_layout
 import copy
 
-# Rest of the code...
+
+# open JSON file
+with open(r'D:\Fub SS 2024\Metaheurisitk\Min-Cost-Problem-Gurobi\Data\chvatal_small.json','r') as f:
+    data = json.load(f)
+
+print(data.keys())
+
+
+# extract nodes and arcs
+nodes_dic = data['nodes']
 arcs = data['arcs']
 
 nodes=nodes_dic.keys()
