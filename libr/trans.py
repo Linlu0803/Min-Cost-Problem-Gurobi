@@ -1,4 +1,4 @@
-
+# ######################## Die Startlösung wurde in Json-Datei gespeichert, muss man in Min-Cost-Problem umwandelt ############################
 
 import json
 import os

@@ -1,7 +1,9 @@
+import ast
+from libr import mcf_solver
 import json
 import networkx as nx
 import matplotlib.pyplot as plt
-from lib import mcf_solver
+
 from networkx import bipartite_layout
 import copy
 
@@ -14,10 +16,10 @@ print(data.keys())
 
 
 # extract nodes and arcs
-nodes_dic = data['nodes']
+nodes= data['nodes']
 arcs = data['arcs']
 
-nodes=nodes_dic.keys()
+
 
 
 # Problem solution
@@ -32,7 +34,7 @@ print(f"Flow values:{flow_values}")
 flow_values_str_keys = {str(key): value for key, value in flow_values.items()}
 
 # Save flow_values to a JSON file
-with open(r'D:\Fub SS 2024\Metaheurisitk\Min-Cost-Problem-Gurobi\flow_values.json', 'w') as f:
+with open(r'D:\Fub SS 2024\Metaheurisitk\Min-Cost-Problem-Gurobi\mc_flow_values_ohne.json', 'w') as f:
     json.dump(flow_values_str_keys, f)
 
 ##################################################################################################

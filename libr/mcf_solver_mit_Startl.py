@@ -1,13 +1,17 @@
 import gurobipy as gp
 from gurobipy import GRB
-import time
+import json
+import ast
 
-def solve_mcf (nodes, arcs):
-    
+
+
+def solve_mcf (nodes, arcs, start_solution):
+
+    # Create the Gurobi model
     model = gp.Model("min-cost-problem")
 
     # Set Gurobi log file
-    model.Params.LogFile = 'gurobi ohne.log'
+    model.Params.LogFile = 'gurobi mit.log'
     
     # Enable verbose output
     model.Params.OutputFlag = 1
@@ -20,6 +24,8 @@ def solve_mcf (nodes, arcs):
     for arc in arcs:
         flow[arc['from'], arc['to']] = model.addVar(
             lb=0, ub=arc['upper_bound'], name=f"flow_{arc['from']}_{arc['to']}")
+        if (arc['from'], arc['to']) in start_solution:
+            flow[arc['from'], arc['to']].start = start_solution[(arc['from'], arc['to'])]
     # 0<=flow<=upper_bound
 
 
