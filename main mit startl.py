@@ -9,7 +9,7 @@ import copy
 
 
 # open JSON file
-with open(r'D:\Fub SS 2024\Metaheurisitk\Min-Cost-Problem-Gurobi\Data\chvatal_small.json','r') as f:
+with open(r'Min-Cost-Problem-Gurobi\Data\chvatal_small.json','r') as f:
     data = json.load(f)
 
 print(data.keys())
